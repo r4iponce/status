@@ -1,0 +1,20 @@
+listen = "localhost:3000"
+
+[log]
+level = "DEBUG"
+file = "log"
+
+[redis]
+enabled = true
+address = "localhost:6379"
+db = 0
+user = "test"
+password = "Password123"
+
+[[probe]]
+name = "example" # Unique name for probe
+description = "Check https://example.org website"
+module = "http"
+[probe.http]
+target = "https://example.org"
+valid = [200, 404]

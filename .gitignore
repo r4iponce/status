@@ -1,0 +1,9 @@
+# Build assets
+status/
+build/
+
+# Config
+config.toml
+
+# IDE
+.idea

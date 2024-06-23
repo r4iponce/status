@@ -1,0 +1,16 @@
+[linters]
+enable-all = true
+disable = [
+  "execinquery",
+  "gomnd",
+  "wsl",
+  "testpackage",
+  "varnamelen",
+  "depguard",
+  "revive",
+  "stylecheck",
+  "exhaustruct",
+  "wrapcheck",
+  "noctx",
+]
+

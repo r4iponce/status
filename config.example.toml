@@ -1,0 +1,31 @@
+listen = "localhost:3000"
+
+[log]
+level = "DEBUG"
+file = ""
+
+[redis]
+enabled = true
+address = "localhost:6379"
+db = 0
+user = ""
+password = ""
+
+
+[[probe]]
+name = "example" # Unique name for probe
+description = "Check https://example.org website"
+module = "http"
+[probe.http]
+target = "https://example.org"
+valid = [200]
+response = ""
+
+[[probe]]
+name = "gitlab" # Unique name for probe
+description = "Check https://gitlab.gnous.eu health"
+module = "http"
+[probe.http]
+target = "https://gitlab.gnous.eu/-/health"
+valid = [200]
+response = "Not Found"
