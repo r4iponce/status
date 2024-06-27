@@ -10,24 +10,26 @@ import (
 )
 
 type BadStatusCodeError struct {
-	expected []int
-	got      int
+	Expected []int
+	Got      int
 }
 
 func (m *BadStatusCodeError) Error() string {
-	return fmt.Sprintf("bad status code, expected: %d got: %d", m.expected, m.got)
+	return fmt.Sprintf("bad status code, Expected: %d Got: %d", m.Expected, m.Got)
 }
 
 type BadBodyError struct {
-	expected string
-	got      string
+	Expected string
+	Got      string
 }
 
 func (m *BadBodyError) Error() string {
-	return fmt.Sprintf("bad responde body, expected: %s got: %s", m.expected, m.got)
+	return fmt.Sprintf("bad responde body, Expected: %s Got: %s", m.Expected, m.Got)
 }
 
 func (c Config) IsUp() error {
+	logrus.Debugf("the check for %s has begin", c.Target)
+
 	r, err := http.Get(c.Target)
 	if err != nil {
 		return err
@@ -49,8 +51,8 @@ func (c Config) IsUp() error {
 
 	if !valid {
 		return &BadStatusCodeError{
-			expected: c.Valid,
-			got:      r.StatusCode,
+			Expected: c.Valid,
+			Got:      r.StatusCode,
 		}
 	}
 
@@ -58,8 +60,8 @@ func (c Config) IsUp() error {
 		body, _ := io.ReadAll(r.Body)
 		if !strings.Contains(string(body), c.Response) {
 			return &BadBodyError{
-				expected: c.Response,
-				got:      string(body),
+				Expected: c.Response,
+				Got:      string(body),
 			}
 		}
 	}

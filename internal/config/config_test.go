@@ -19,7 +19,7 @@ func TestVerify(t *testing.T) {
 		got := c.Verify()
 
 		if err != nil {
-			t.Errorf("want nil, got %v", got)
+			t.Fatalf("want nil, got %v", got)
 		}
 	})
 
@@ -35,7 +35,7 @@ func TestVerify(t *testing.T) {
 		want := errLogLevel
 
 		if !errors.Is(got, want) {
-			t.Errorf("want %v, got %v", want, got)
+			t.Fatalf("want %v, got %v", want, got)
 		}
 	})
 }

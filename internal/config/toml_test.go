@@ -46,7 +46,7 @@ func TestToml(t *testing.T) {
 		}
 
 		if !reflect.DeepEqual(want, got) {
-			t.Errorf("want %v, got %v", want, got)
+			t.Fatalf("want %v, got %v", want, got)
 		}
 	})
 }
