@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/redis/go-redis/v9"
-	"gitlab.gnous.eu/ada/status/internal/models"
+	"go.ada.wf/status/internal/models"
 )
 
 var errPing = errors.New("connection to redis does not work")

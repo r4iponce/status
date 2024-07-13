@@ -6,7 +6,7 @@ import (
 
 	"github.com/redis/go-redis/v9"
 	"github.com/sirupsen/logrus"
-	"gitlab.gnous.eu/ada/status/internal/probe"
+	"go.ada.wf/status/internal/probe"
 )
 
 type Config struct {

@@ -7,11 +7,11 @@ import (
 
 	"github.com/redis/go-redis/v9"
 	"github.com/sirupsen/logrus"
-	"gitlab.gnous.eu/ada/status/internal/cache"
-	"gitlab.gnous.eu/ada/status/internal/config"
-	"gitlab.gnous.eu/ada/status/internal/constant"
-	"gitlab.gnous.eu/ada/status/internal/log"
-	"gitlab.gnous.eu/ada/status/internal/router/api"
+	"go.ada.wf/status/internal/cache"
+	"go.ada.wf/status/internal/config"
+	"go.ada.wf/status/internal/constant"
+	"go.ada.wf/status/internal/log"
+	"go.ada.wf/status/internal/router/api"
 )
 
 func static(w http.ResponseWriter, r *http.Request) {

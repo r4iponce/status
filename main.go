@@ -4,8 +4,8 @@ import (
 	"os"
 
 	"github.com/sirupsen/logrus"
-	"gitlab.gnous.eu/ada/status/internal/config"
-	"gitlab.gnous.eu/ada/status/internal/router"
+	"go.ada.wf/status/internal/config"
+	"go.ada.wf/status/internal/router"
 )
 
 func main() {

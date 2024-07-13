@@ -2,8 +2,8 @@ package probe
 
 import (
 	"github.com/sirupsen/logrus"
-	"gitlab.gnous.eu/ada/status/internal/cache"
-	"gitlab.gnous.eu/ada/status/internal/models"
+	"go.ada.wf/status/internal/cache"
+	"go.ada.wf/status/internal/models"
 )
 
 func RunAll(c Config) []models.Status {

@@ -2,7 +2,7 @@ package probe
 
 import (
 	"github.com/redis/go-redis/v9"
-	"gitlab.gnous.eu/ada/status/internal/modules/http"
+	"go.ada.wf/status/internal/modules/http"
 )
 
 type Config struct {

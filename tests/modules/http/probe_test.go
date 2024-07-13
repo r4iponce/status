@@ -8,9 +8,9 @@ import (
 	"time"
 
 	"github.com/sirupsen/logrus"
-	"gitlab.gnous.eu/ada/status/internal/constant"
-	local_http "gitlab.gnous.eu/ada/status/internal/modules/http"
-	"gitlab.gnous.eu/ada/status/tests/utils"
+	"go.ada.wf/status/internal/constant"
+	local_http "go.ada.wf/status/internal/modules/http"
+	"go.ada.wf/status/tests/utils"
 )
 
 func prepare(listen string, handler utils.Handler) {

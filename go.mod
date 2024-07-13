@@ -1,4 +1,4 @@
-module gitlab.gnous.eu/ada/status
+module go.ada.wf/status
 
 go 1.22
 

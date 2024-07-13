@@ -4,10 +4,10 @@ import (
 	"reflect"
 	"testing"
 
-	"gitlab.gnous.eu/ada/status/internal/cache"
-	"gitlab.gnous.eu/ada/status/internal/log"
-	"gitlab.gnous.eu/ada/status/internal/modules/http"
-	"gitlab.gnous.eu/ada/status/internal/probe"
+	"go.ada.wf/status/internal/cache"
+	"go.ada.wf/status/internal/log"
+	"go.ada.wf/status/internal/modules/http"
+	"go.ada.wf/status/internal/probe"
 )
 
 func TestToml(t *testing.T) {
