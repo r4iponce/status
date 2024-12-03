@@ -24,7 +24,7 @@
 		<p>
 			This is a minimal status page services. You can find source on <a
 				href="https://github.com/r4iponce/status"
-				class="underline decoration-2 decoration-pink-500 duration-300 hover:bg-pink-500">gitlab</a
+					class="underline decoration-2 decoration-pink-500 duration-300 hover:bg-pink-500">GitHub</a
 			>. This is build with
 			<a
 				href="https://go.dev"
