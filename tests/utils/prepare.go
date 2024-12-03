@@ -15,7 +15,7 @@ import (
 
 func GetRandomPort() int {
 	port := rand.IntN(65535-1024) + 1024
-	for isPortAvailable(port) == false {
+	for !isPortAvailable(port) {
 		port = rand.IntN(65535-1024) + 1024
 	}
 

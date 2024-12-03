@@ -2,7 +2,6 @@ package router
 
 import (
 	"errors"
-	"gitlab.gnous.eu/ada/status/internal/router/api"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -11,6 +10,7 @@ import (
 	"gitlab.gnous.eu/ada/status/internal/config"
 	"gitlab.gnous.eu/ada/status/internal/constant"
 	"gitlab.gnous.eu/ada/status/internal/log"
+	"gitlab.gnous.eu/ada/status/internal/router/api"
 )
 
 func static(w http.ResponseWriter, r *http.Request) {

@@ -30,10 +30,11 @@ func (m *BadBodyError) Error() string {
 func (c Config) IsUp() error {
 	logrus.Debugf("the check for %s has begin", c.Target)
 
-	r, err := http.Get(c.Target)
+	r, err := http.Get(c.Target) //nolint:bodyclose
 	if err != nil {
 		return err
 	}
+
 	defer func(Body io.ReadCloser) {
 		err := Body.Close()
 		if err != nil {

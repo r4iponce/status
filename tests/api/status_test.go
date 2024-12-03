@@ -213,5 +213,4 @@ func TestStatusApi(t *testing.T) { //nolint:funlen
 			t.Fatalf("want %v, got %v", want, got[0])
 		}
 	})
-
 }

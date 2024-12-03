@@ -1,10 +1,10 @@
 package main
 
 import (
-	"gitlab.gnous.eu/ada/status/internal/cache"
 	"os"
 
 	"github.com/sirupsen/logrus"
+	"gitlab.gnous.eu/ada/status/internal/cache"
 	"gitlab.gnous.eu/ada/status/internal/config"
 	"gitlab.gnous.eu/ada/status/internal/router"
 )

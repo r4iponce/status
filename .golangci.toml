@@ -1,8 +1,6 @@
 [linters]
 enable-all = true
 disable = [
-  "execinquery",
-  "gomnd",
   "wsl",
   "testpackage",
   "varnamelen",
@@ -12,5 +10,9 @@ disable = [
   "exhaustruct",
   "wrapcheck",
   "noctx",
+  "exportloopref",
+  "gochecknoglobals", # Too strict
 ]
 
+[issues]
+exclude-dirs = ["tests/"]
