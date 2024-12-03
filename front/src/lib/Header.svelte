@@ -1,5 +1,5 @@
 <script>
-	export let heads;
+	let { heads } = $props();
 </script>
 
 <nav class="ml-20 mt-10 mb-5">
