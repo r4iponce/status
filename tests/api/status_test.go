@@ -9,12 +9,12 @@ import (
 	"time"
 
 	"github.com/sirupsen/logrus"
-	"go.ada.wf/status/internal/cache"
-	"go.ada.wf/status/internal/constant"
-	"go.ada.wf/status/internal/models"
-	local_http "go.ada.wf/status/internal/modules/http"
-	"go.ada.wf/status/internal/probe"
-	"go.ada.wf/status/tests/utils"
+	"gitlab.gnous.eu/ada/status/internal/cache"
+	"gitlab.gnous.eu/ada/status/internal/constant"
+	"gitlab.gnous.eu/ada/status/internal/models"
+	local_http "gitlab.gnous.eu/ada/status/internal/modules/http"
+	"gitlab.gnous.eu/ada/status/internal/probe"
+	"gitlab.gnous.eu/ada/status/tests/utils"
 )
 
 func prepare(listen string, handler utils.Handler) {

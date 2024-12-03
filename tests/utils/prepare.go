@@ -6,11 +6,11 @@ import (
 	"net"
 
 	"github.com/sirupsen/logrus"
-	"go.ada.wf/status/internal/cache"
-	"go.ada.wf/status/internal/config"
-	"go.ada.wf/status/internal/log"
-	"go.ada.wf/status/internal/probe"
-	"go.ada.wf/status/internal/router"
+	"gitlab.gnous.eu/ada/status/internal/cache"
+	"gitlab.gnous.eu/ada/status/internal/config"
+	"gitlab.gnous.eu/ada/status/internal/log"
+	"gitlab.gnous.eu/ada/status/internal/probe"
+	"gitlab.gnous.eu/ada/status/internal/router"
 )
 
 func GetRandomPort() int {

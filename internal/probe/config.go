@@ -1,12 +1,12 @@
 package probe
 
 import (
-	"github.com/redis/go-redis/v9"
-	"go.ada.wf/status/internal/modules/http"
+	"gitlab.gnous.eu/ada/status/internal/modules/http"
 )
 
+var config Config
+
 type Config struct {
-	Db      *redis.Client
 	Cache   bool
 	Targets []Target
 }
@@ -16,4 +16,11 @@ type Target struct {
 	Description string
 	Module      string
 	Http        http.Config
+}
+
+func Init(cache bool, targets []Target) {
+	config = Config{
+		Cache:   cache,
+		Targets: targets,
+	}
 }

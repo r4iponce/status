@@ -2,20 +2,20 @@ package router
 
 import (
 	"errors"
+	"gitlab.gnous.eu/ada/status/internal/router/api"
 	"net/http"
 	"os"
+	"path/filepath"
 
-	"github.com/redis/go-redis/v9"
 	"github.com/sirupsen/logrus"
-	"go.ada.wf/status/internal/cache"
-	"go.ada.wf/status/internal/config"
-	"go.ada.wf/status/internal/constant"
-	"go.ada.wf/status/internal/log"
-	"go.ada.wf/status/internal/router/api"
+	"gitlab.gnous.eu/ada/status/internal/config"
+	"gitlab.gnous.eu/ada/status/internal/constant"
+	"gitlab.gnous.eu/ada/status/internal/log"
 )
 
 func static(w http.ResponseWriter, r *http.Request) {
-	file := "build/" + r.PathValue("file") + ".html"
+	fileName := r.PathValue("file") + ".html"
+	file := filepath.Join("build", fileName)
 
 	index, err := os.ReadFile(file)
 	if err != nil {
@@ -37,19 +37,8 @@ func static(w http.ResponseWriter, r *http.Request) {
 }
 
 func Init(c config.Config) {
-	var db *redis.Client
-
-	if c.Redis.Enabled {
-		db = c.Redis.Connect()
-		err := cache.Ping(db)
-		if err != nil {
-			logrus.Fatal(err)
-		}
-	}
-
 	apiConfig := api.Config{
 		Targets: c.Probe,
-		Db:      db,
 		Cache:   c.Redis.Enabled,
 	}
 

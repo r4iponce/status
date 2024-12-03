@@ -1,11 +1,12 @@
 package main
 
 import (
+	"gitlab.gnous.eu/ada/status/internal/cache"
 	"os"
 
 	"github.com/sirupsen/logrus"
-	"go.ada.wf/status/internal/config"
-	"go.ada.wf/status/internal/router"
+	"gitlab.gnous.eu/ada/status/internal/config"
+	"gitlab.gnous.eu/ada/status/internal/router"
 )
 
 func main() {
@@ -33,6 +34,14 @@ func main() {
 	err = c.Log.Init()
 	if err != nil {
 		logrus.Fatal(err)
+	}
+
+	if c.Redis.Enabled {
+		c.Redis.Connect()
+		err = cache.Ping()
+		if err != nil {
+			logrus.Fatal(err)
+		}
 	}
 
 	logrus.Debugf("Loaded config : %v", c)

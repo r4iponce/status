@@ -2,17 +2,17 @@ package probe
 
 import (
 	"github.com/sirupsen/logrus"
-	"go.ada.wf/status/internal/cache"
-	"go.ada.wf/status/internal/models"
+	"gitlab.gnous.eu/ada/status/internal/cache"
+	"gitlab.gnous.eu/ada/status/internal/models"
 )
 
-func RunAll(c Config) []models.Status {
+func RunAll() []models.Status {
 	var statuses []models.Status
 
-	for _, v := range c.Targets {
+	for _, v := range config.Targets {
 		switch v.Module {
 		case "http":
-			s := runHttp(c, v)
+			s := runHttp(config, v)
 			statuses = append(statuses, s)
 		default:
 			logrus.Errorf("Invalid module name: %s", v.Module)
@@ -28,8 +28,8 @@ func runHttp(c Config, t Target) models.Status {
 	var statuses models.Status
 
 	if c.Cache {
-		if cache.KeyExist(c.Db, t.Name) {
-			statuses, err = cache.GetCacheResult(c.Db, t.Name)
+		if cache.KeyExist(t.Name) {
+			statuses, err = cache.GetCacheResult(t.Name)
 			if err != nil {
 				logrus.Error(err)
 			}
@@ -56,7 +56,7 @@ func runHttp(c Config, t Target) models.Status {
 	}
 
 	if c.Cache {
-		cache.SetCacheResult(c.Db, statuses)
+		cache.SetCacheResult(statuses)
 	}
 
 	return statuses

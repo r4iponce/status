@@ -1,9 +1,9 @@
 package config
 
 import (
-	"go.ada.wf/status/internal/cache"
-	"go.ada.wf/status/internal/log"
-	"go.ada.wf/status/internal/probe"
+	"gitlab.gnous.eu/ada/status/internal/cache"
+	"gitlab.gnous.eu/ada/status/internal/log"
+	"gitlab.gnous.eu/ada/status/internal/probe"
 )
 
 type Config struct {

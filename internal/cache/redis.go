@@ -6,10 +6,12 @@ import (
 	"time"
 
 	"github.com/redis/go-redis/v9"
-	"go.ada.wf/status/internal/models"
+	"gitlab.gnous.eu/ada/status/internal/models"
 )
 
 var errPing = errors.New("connection to redis does not work")
+
+var db *redis.Client
 
 type Config struct {
 	Enabled  bool
@@ -30,7 +32,7 @@ func (c Config) Connect() *redis.Client {
 	return db
 }
 
-func Ping(db *redis.Client) error {
+func Ping() error {
 	ctx := context.Background()
 
 	status := db.Ping(ctx)
@@ -41,7 +43,7 @@ func Ping(db *redis.Client) error {
 	return nil
 }
 
-func SetCacheResult(db *redis.Client, status models.Status) {
+func SetCacheResult(status models.Status) {
 	ctx := context.Background()
 
 	db.HSet(ctx, status.Name, "success", status.Success)
@@ -50,7 +52,7 @@ func SetCacheResult(db *redis.Client, status models.Status) {
 	db.HSet(ctx, status.Name, "target", status.Target)
 }
 
-func GetCacheResult(db *redis.Client, name string) (models.Status, error) {
+func GetCacheResult(name string) (models.Status, error) {
 	ctx := context.Background()
 
 	var status models.Status
@@ -71,7 +73,7 @@ func GetCacheResult(db *redis.Client, name string) (models.Status, error) {
 	return status, nil
 }
 
-func KeyExist(db *redis.Client, key string) bool {
+func KeyExist(key string) bool {
 	ctx := context.Background()
 
 	return db.Exists(ctx, key).Val() == 1
