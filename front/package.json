@@ -10,16 +10,16 @@
   },
   "devDependencies": {
     "@neoconfetti/svelte": "^1.0.0",
-    "@sveltejs/adapter-auto": "^3.0.0",
-    "@sveltejs/adapter-static": "^3.0.2",
-    "@sveltejs/kit": "^2.0.0",
-    "@sveltejs/vite-plugin-svelte": "^3.0.0",
-    "autoprefixer": "^10.4.19",
-    "globals": "^15.0.0",
-    "postcss": "^8.4.38",
-    "svelte": "^4.2.18",
-    "tailwindcss": "^3.4.4",
-    "vite": "^5.0.3"
+    "@sveltejs/adapter-auto": "^3.3.1",
+    "@sveltejs/adapter-static": "^3.0.6",
+    "@sveltejs/kit": "^2.9.0",
+    "@sveltejs/vite-plugin-svelte": "^3.1.2",
+    "autoprefixer": "^10.4.20",
+    "globals": "^15.13.0",
+    "postcss": "^8.4.49",
+    "svelte": "^4.2.19",
+    "tailwindcss": "^3.4.15",
+    "vite": "^5.4.11"
   },
   "type": "module"
 }
