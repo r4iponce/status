@@ -45,6 +45,7 @@ func Init(c config.Config) {
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("GET /api/status", log.Next{Fn: apiConfig.GetAll}.HttpLogger)
+	mux.HandleFunc("GET /api/status/{name}", log.Next{Fn: apiConfig.Get}.HttpLogger)
 	mux.HandleFunc("GET /{file}", static)
 	mux.Handle("GET /", http.FileServer(http.Dir("build")))
 

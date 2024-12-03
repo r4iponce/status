@@ -36,7 +36,7 @@ func prepare(listen string, handler utils.Handler) {
 	}()
 }
 
-func TestStatusApi(t *testing.T) { //nolint:funlen
+func TestStatusApi(t *testing.T) {
 	t.Parallel()
 
 	t.Run("Basic up target", func(t *testing.T) {

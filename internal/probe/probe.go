@@ -12,7 +12,7 @@ func RunAll() []models.Status {
 	for _, v := range config.Targets {
 		switch v.Module {
 		case "http":
-			s := runHttp(config, v)
+			s := RunHttp(config.Cache, v)
 			statuses = append(statuses, s)
 		default:
 			logrus.Errorf("Invalid module name: %s", v.Module)
@@ -22,12 +22,12 @@ func RunAll() []models.Status {
 	return statuses
 }
 
-func runHttp(c Config, t Target) models.Status {
+func RunHttp(cacheEnabled bool, t Target) models.Status {
 	err := t.Http.IsUp()
 
 	var statuses models.Status
 
-	if c.Cache {
+	if cacheEnabled {
 		if cache.KeyExist(t.Name) {
 			statuses, err = cache.GetCacheResult(t.Name)
 			if err != nil {
@@ -55,7 +55,7 @@ func runHttp(c Config, t Target) models.Status {
 		}
 	}
 
-	if c.Cache {
+	if cacheEnabled {
 		cache.SetCacheResult(statuses)
 	}
 
