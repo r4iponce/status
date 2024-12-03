@@ -1,0 +1,36 @@
+# Status
+Status is a minimalist status tools
+
+<p style="text-align: center;">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="doc/assets/home-dark.png" width="50%">
+    <img src="doc/assets/home-light.png" width="50%">
+  </picture>
+</p>
+
+# Building
+## Dependencies
+First, you'll need Go (>1.22), pnpm, make. The second step is to install front dependencies :
+```bash
+cd front/
+pnpm install
+```
+
+## Build
+```bash
+make build
+```
+
+or
+
+```bash
+make
+```
+
+The second build *and* run directly the binary.
+
+# Configuration
+You can find a documented example in `config.example.toml`
+
+# Run
+After having compiled, you can simply run `./status <config path>`. If no argument is provided, the config will be `./config.toml`

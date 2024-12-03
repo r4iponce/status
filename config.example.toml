@@ -1,4 +1,4 @@
-listen = "localhost:3000"
+listen = "localhost:3000" # You can use only port (:3000) to listen on every interface
 
 [log]
 level = "DEBUG"
