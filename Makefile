@@ -18,6 +18,7 @@ clean:
 	rm -r build/
 
 lint:
+	go vet
 	golangci-lint run
 
 test:
