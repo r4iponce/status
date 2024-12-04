@@ -57,12 +57,7 @@ jobs:
         with:
           node-version: 22
           cache: 'pnpm'
-
-      - name: Install dependencies
-        run: |
-          go mod download
-          cd front/
-          pnpm install
+          cache-dependency-path: front/pnpm-lock.yaml
 
       - name: Build
         run: make build
