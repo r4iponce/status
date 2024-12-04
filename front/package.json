@@ -9,7 +9,7 @@
     "format": "prettier --write ."
   },
   "devDependencies": {
-    "@neoconfetti/svelte": "^1.0.0",
+    "@neoconfetti/svelte": "^2.2.1",
     "@sveltejs/adapter-auto": "^3.3.1",
     "@sveltejs/adapter-static": "^3.0.6",
     "@sveltejs/kit": "^2.9.0",
