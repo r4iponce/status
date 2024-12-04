@@ -34,7 +34,7 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/r4iponce/status:latest
+          tags: ghcr.io/r4iponce/status:dev
           file: deployment/docker/Dockerfile
   
   build:
@@ -58,6 +58,11 @@ jobs:
           node-version: 22
           cache: 'pnpm'
           cache-dependency-path: front/pnpm-lock.yaml
+
+      - name: Install pnpm dependencies
+        run: |
+          cd front/
+          pnpm install
 
       - name: Build
         run: make build
