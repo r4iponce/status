@@ -26,6 +26,8 @@ RUN CGO_ENABLED=0 GOOS=linux go build -ldflags "-w -s"
 
 # Copy to our image
 FROM gcr.io/distroless/static-debian12
+LABEL org.opencontainers.image.authors="Ada <ada@gnous.eu>"
+LABEL org.opencontainers.image.source="https://github.com/r4iponce/source"
 
 WORKDIR /app
 
