@@ -1,25 +1,18 @@
 package probe
 
 import (
-	"gitlab.gnous.eu/ada/status/internal/modules/http"
+	"gitlab.gnous.eu/ada/status/internal/config"
 )
 
-var config Config
+var c Config
 
 type Config struct {
 	Cache   bool
-	Targets []Target
+	Targets []config.Target
 }
 
-type Target struct {
-	Name        string
-	Description string
-	Module      string
-	Http        http.Config
-}
-
-func Init(cache bool, targets []Target) {
-	config = Config{
+func Init(cache bool, targets []config.Target) {
+	c = Config{
 		Cache:   cache,
 		Targets: targets,
 	}

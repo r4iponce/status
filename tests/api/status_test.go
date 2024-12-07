@@ -8,12 +8,13 @@ import (
 	"testing"
 	"time"
 
+	"gitlab.gnous.eu/ada/status/internal/config"
+
 	"github.com/sirupsen/logrus"
 	"gitlab.gnous.eu/ada/status/internal/cache"
 	"gitlab.gnous.eu/ada/status/internal/constant"
 	"gitlab.gnous.eu/ada/status/internal/models"
 	local_http "gitlab.gnous.eu/ada/status/internal/modules/http"
-	"gitlab.gnous.eu/ada/status/internal/probe"
 	"gitlab.gnous.eu/ada/status/tests/utils"
 )
 
@@ -48,7 +49,7 @@ func TestStatusApi(t *testing.T) {
 			Enabled: false,
 		}
 
-		targets := []probe.Target{{
+		targets := []config.Target{{
 			Name:        "test1",
 			Description: "This is test one",
 			Module:      "http",
@@ -105,7 +106,7 @@ func TestStatusApi(t *testing.T) {
 			Enabled: false,
 		}
 
-		targets := []probe.Target{{
+		targets := []config.Target{{
 			Name:        "test2",
 			Description: "This is test two",
 			Module:      "http",
@@ -164,7 +165,7 @@ func TestStatusApi(t *testing.T) {
 			Enabled: false,
 		}
 
-		targets := []probe.Target{{
+		targets := []config.Target{{
 			Name:        "test3",
 			Description: "This is test three",
 			Module:      "http",

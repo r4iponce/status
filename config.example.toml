@@ -29,3 +29,7 @@ module = "http"
 target = "https://gitlab.gnous.eu/-/health"
 valid = [200]
 response = "Not Found"
+[probe.webhooks]
+enabled = true
+username = "Status alert"
+url = "https://discord.com/api/webhooks/28357/verysecuretoken"

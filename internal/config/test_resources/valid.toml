@@ -18,3 +18,7 @@ module = "http"
 [probe.http]
 target = "https://example.org"
 valid = [200, 404]
+[probe.webhooks]
+enabled = true
+username = "Status alert"
+url = "https://discord.com/api/webhooks/28357/verysecuretoken"

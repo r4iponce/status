@@ -3,14 +3,28 @@ package config
 import (
 	"gitlab.gnous.eu/ada/status/internal/cache"
 	"gitlab.gnous.eu/ada/status/internal/log"
-	"gitlab.gnous.eu/ada/status/internal/probe"
+	"gitlab.gnous.eu/ada/status/internal/modules/http"
 )
 
 type Config struct {
 	Log    log.Config
 	Listen string
-	Probe  []probe.Target
+	Probe  []Target
 	Redis  cache.Config
+}
+
+type Target struct {
+	Name        string
+	Description string
+	Module      string
+	Http        http.Config
+	Webhooks    Alerting
+}
+
+type Alerting struct {
+	Enabled  bool
+	Username string
+	Url      string
 }
 
 func (c Config) Verify() error {

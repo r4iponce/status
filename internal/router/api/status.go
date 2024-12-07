@@ -5,11 +5,12 @@ import (
 	"net/http"
 
 	"github.com/sirupsen/logrus"
+	"gitlab.gnous.eu/ada/status/internal/config"
 	"gitlab.gnous.eu/ada/status/internal/probe"
 )
 
 type Config struct {
-	Targets []probe.Target
+	Targets []config.Target
 	Cache   bool
 }
 
@@ -34,7 +35,7 @@ func (c Config) GetAll(w http.ResponseWriter, _ *http.Request) {
 }
 
 func (c Config) Get(w http.ResponseWriter, r *http.Request) {
-	var target probe.Target
+	var target config.Target
 
 	for _, v := range c.Targets {
 		if v.Name == r.PathValue("name") {

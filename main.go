@@ -4,6 +4,7 @@ import (
 	"os"
 
 	"github.com/sirupsen/logrus"
+	"gitlab.gnous.eu/ada/status/internal/alerting"
 	"gitlab.gnous.eu/ada/status/internal/cache"
 	"gitlab.gnous.eu/ada/status/internal/config"
 	"gitlab.gnous.eu/ada/status/internal/router"
@@ -36,6 +37,8 @@ func main() {
 		logrus.Fatal(err)
 	}
 
+	logrus.Debugf("Loaded config : %v", c)
+
 	if c.Redis.Enabled {
 		c.Redis.Connect()
 		err = cache.Ping()
@@ -44,7 +47,7 @@ func main() {
 		}
 	}
 
-	logrus.Debugf("Loaded config : %v", c)
+	go alerting.InitCheck(c.Probe)
 
 	router.Init(c)
 }

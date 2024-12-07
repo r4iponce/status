@@ -9,7 +9,6 @@ import (
 	"gitlab.gnous.eu/ada/status/internal/cache"
 	"gitlab.gnous.eu/ada/status/internal/config"
 	"gitlab.gnous.eu/ada/status/internal/log"
-	"gitlab.gnous.eu/ada/status/internal/probe"
 	"gitlab.gnous.eu/ada/status/internal/router"
 )
 
@@ -36,7 +35,7 @@ func isPortAvailable(port int) bool {
 	return true
 }
 
-func Prepare(targets []probe.Target, redis cache.Config) string {
+func Prepare(targets []config.Target, redis cache.Config) string {
 	listen := fmt.Sprintf("localhost:%d", GetRandomPort())
 
 	c := config.Config{

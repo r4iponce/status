@@ -7,7 +7,6 @@ import (
 	"gitlab.gnous.eu/ada/status/internal/cache"
 	"gitlab.gnous.eu/ada/status/internal/log"
 	"gitlab.gnous.eu/ada/status/internal/modules/http"
-	"gitlab.gnous.eu/ada/status/internal/probe"
 )
 
 func TestToml(t *testing.T) {
@@ -34,13 +33,18 @@ func TestToml(t *testing.T) {
 				User:     "test",
 				Password: "Password123",
 			},
-			Probe: []probe.Target{{
+			Probe: []Target{{
 				Name:        "example",
 				Description: "Check https://example.org website",
 				Module:      "http",
 				Http: http.Config{
 					Target: "https://example.org",
 					Valid:  []int{200, 404},
+				},
+				Webhooks: Alerting{
+					Enabled:  true,
+					Username: "Status alert",
+					Url:      "https://discord.com/api/webhooks/28357/verysecuretoken",
 				},
 			}},
 		}
