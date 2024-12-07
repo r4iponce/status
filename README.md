@@ -49,4 +49,4 @@ You can find a documented example in `config.example.toml`
 # Run
 After having compiled, you can simply run `./status <config path>`. If no argument is provided, the config will be `./config.toml`
 
-With docker : `docker run -v ./config.toml:/config.toml -p 3000:3000 status`
+With docker : `docker run -v ./config.toml:/config.toml -p 3000:3000 ghcr.io/r4iponce/status:dev`
