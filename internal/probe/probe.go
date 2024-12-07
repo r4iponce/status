@@ -23,7 +23,6 @@ func RunAll() []models.Status {
 }
 
 func RunHttp(cacheEnabled bool, t Target) models.Status {
-	err := t.Http.IsUp()
 
 	var statuses models.Status
 
@@ -33,6 +32,7 @@ func RunHttp(cacheEnabled bool, t Target) models.Status {
 			if err != nil {
 				logrus.Error(err)
 			}
+		err = t.Http.IsUp()
 
 			return statuses
 		}
