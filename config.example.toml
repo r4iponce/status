@@ -11,6 +11,8 @@ db = 0
 user = ""
 password = ""
 
+[alerting]
+interval = 1 # Check interval
 
 [[probe]]
 name = "example" # Unique name for probe

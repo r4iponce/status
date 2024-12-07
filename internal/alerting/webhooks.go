@@ -24,6 +24,8 @@ func SendNotification(c config.Alerting, message string) error {
 		return errDisabledWebhook
 	}
 
+	logrus.Debugf("sending a webhook with message : %s", message)
+
 	data, err := json.Marshal(webhook{
 		Username: c.Username,
 		Content:  message,
@@ -47,16 +49,17 @@ func SendNotification(c config.Alerting, message string) error {
 	return nil
 }
 
-func InitCheck(targets []config.Target) {
+func InitCheck(targets []config.Target, interval int) {
 	logrus.Debug("initializing alerting")
 
 	for {
+		logrus.Debug("1.1")
 		err := checkStatus(targets)
 		if err != nil {
 			logrus.Error(err)
 		}
 
-		time.Sleep(5 * time.Minute) // TODO make it configurable
+		time.Sleep(time.Duration(interval) * time.Minute)
 	}
 }
 

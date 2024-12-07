@@ -33,6 +33,7 @@ func TestToml(t *testing.T) {
 				User:     "test",
 				Password: "Password123",
 			},
+			Check: Check{Interval: 1},
 			Probe: []Target{{
 				Name:        "example",
 				Description: "Check https://example.org website",

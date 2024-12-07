@@ -11,6 +11,7 @@ type Config struct {
 	Listen string
 	Probe  []Target
 	Redis  cache.Config
+	Check  Check `toml:"alerting"`
 }
 
 type Target struct {
@@ -19,6 +20,10 @@ type Target struct {
 	Module      string
 	Http        http.Config
 	Webhooks    Alerting
+}
+
+type Check struct {
+	Interval int
 }
 
 type Alerting struct {

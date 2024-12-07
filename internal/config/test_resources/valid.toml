@@ -11,6 +11,9 @@ db = 0
 user = "test"
 password = "Password123"
 
+[alerting]
+interval = 1
+
 [[probe]]
 name = "example" # Unique name for probe
 description = "Check https://example.org website"

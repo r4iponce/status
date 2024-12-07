@@ -12,6 +12,7 @@ disable = [
   "noctx",
   "exportloopref",
   "gochecknoglobals", # Too strict
+  "godox",
 ]
 
 [issues]

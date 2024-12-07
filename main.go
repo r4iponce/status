@@ -47,7 +47,7 @@ func main() {
 		}
 	}
 
-	go alerting.InitCheck(c.Probe)
+	go alerting.InitCheck(c.Probe, c.Check.Interval)
 
 	router.Init(c)
 }
