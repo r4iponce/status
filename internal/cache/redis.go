@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/redis/go-redis/v9"
+	"github.com/sirupsen/logrus"
 	"gitlab.gnous.eu/ada/status/internal/models"
 )
 
@@ -22,12 +23,16 @@ type Config struct {
 }
 
 func (c Config) Connect() *redis.Client {
-	db := redis.NewClient(&redis.Options{
+	db = redis.NewClient(&redis.Options{
 		Addr:     c.Address,
 		Username: c.User,
 		Password: c.Password,
 		DB:       c.Db,
 	})
+
+	if db == nil {
+		logrus.Fatal("failed to connect to redis")
+	}
 
 	return db
 }
