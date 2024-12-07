@@ -3,10 +3,16 @@ Status is a minimalist status tools
 
 <p style="text-align: center;">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="doc/assets/home-dark.png" width="50%">
-    <img src="doc/assets/home-light.png" width="50%">
+    <source media="(prefers-color-scheme: dark)" srcset="doc/assets/home-dark.png">
+    <img src="doc/assets/home-light.png">
   </picture>
 </p>
+
+## Features :
+
+- Simple status page
+- An api (not documented yet)
+- Alert on discord when a host is down
 
 # Building
 ## Dependencies
