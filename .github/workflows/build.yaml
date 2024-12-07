@@ -4,6 +4,13 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'front/**'
+      - 'internal/**'
+      - 'main.go'
+      - 'go.mod'
+      - 'go.sum'
+      - 'deployment/docker'
 
 jobs:
   build-push-image:
