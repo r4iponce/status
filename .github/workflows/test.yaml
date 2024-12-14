@@ -17,7 +17,6 @@ on:
       - 'main.go'
       - 'go.mod'
       - 'go.sum'
-
 jobs:
   test-backend:
     runs-on: ubuntu-latest
@@ -31,4 +30,6 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: ${{ matrix.go }}
+      - name: Setup redis
+        run: sudo apt-get update && sudo apt-get install -y redis-server
       - run: go test ./...

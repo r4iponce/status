@@ -22,7 +22,7 @@ type Config struct {
 	Password string
 }
 
-func (c Config) Connect() *redis.Client {
+func (c Config) Connect() {
 	db = redis.NewClient(&redis.Options{
 		Addr:     c.Address,
 		Username: c.User,
@@ -33,8 +33,6 @@ func (c Config) Connect() *redis.Client {
 	if db == nil {
 		logrus.Fatal("failed to connect to redis")
 	}
-
-	return db
 }
 
 func Ping() error {
